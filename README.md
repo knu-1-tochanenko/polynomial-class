@@ -1,5 +1,3 @@
 # polynomial-class
 
-PosSiblY wOrkInG AddItIon anD SubStrActiOn oF tWo pOlyNomIal exPrEssIonS.
-Weird code which was written by VLADISLAV TOCHANENKO
-28.03.2018
+Possibly working addition and substraction of two polynomial expressions.
