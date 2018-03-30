@@ -1,6 +1,6 @@
 # polynomial-class
 
-Possibly working addition and substraction of two polynomial expressions.
+A class for processing polynomial expressions.
 
 - [X] Addition of polynomial expressions
 - [X] Substraction of polynomial expressions
