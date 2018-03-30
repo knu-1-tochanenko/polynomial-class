@@ -2,8 +2,8 @@
 
 A class for processing polynomial expressions.
 
-- [X] Addition of polynoms
-- [X] Subtraction of polynoms
+- [X] Addition of polynomials
+- [X] Subtraction of polynomials
 - [ ] Multiplication by a number
-- [ ] Multiplication of polynoms
-- [ ] Division of polynoms
+- [ ] Multiplication of polynomials
+- [ ] Division of polynomials
