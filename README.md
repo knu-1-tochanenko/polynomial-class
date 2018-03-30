@@ -11,7 +11,7 @@ There are plenty of features:
 
 ### List of functions
 
-##### Constructiors
+#### Constructors
 - **Polynomial**();
 - **Polynomial**(int n_args, ...);
 
@@ -39,6 +39,6 @@ There are plenty of features:
 - Polynomial **divide_polynomials**(Polynomial element)
   - Returns remainder, writes result into current polynomial
 
-  #### Todo:
-  - multiply_polynomials
-  - divide_polynomials
+#### Todo:
+- multiply_polynomials
+- divide_polynomials
