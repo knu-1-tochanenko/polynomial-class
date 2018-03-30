@@ -11,7 +11,7 @@ There are plenty of features:
 
 ### List of functions
 
-##### Constructiors
+#### Constructors
 - **Polynomial**();
 - **Polynomial**(int n_args, ...);
 
