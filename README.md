@@ -34,6 +34,11 @@ There are plenty of features:
 - void **multiply**(double number)
 - bool **divide**(double number)
   - Returns false if number == 0
-- void **multiply_polynomials**(Polynomial element)
+- void **multiply_polynomials**(Polynomial second_polynomial)
+  - Achtung! Wipes all list if second_polynomial is empty or has one element with coefficient == 0
 - Polynomial **divide_polynomials**(Polynomial element)
   - Returns remainder, writes result into current polynomial
+
+#### Todo:
+- multiply_polynomials
+- divide_polynomials
