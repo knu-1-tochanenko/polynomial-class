@@ -180,6 +180,23 @@ void Polynomial::print_polynomial() {
 	cout << endl;
 }
 
+void Polynomial::copy_polynomial(Polynomial polynomial) {
+	this->wipe(this->head_element);
+	Monomial* second_element = polynomial.head_element;
+	Monomial* new_monomial = new Monomial;
+	Monomial* cur_element;
+	new_monomial->update(second_element->exponent_value, second_element->coefficient, NULL);
+	this->head_element = new_monomial;
+	cur_element = this->head_element;
+
+	while (second_element != NULL) {
+		Monomial* new_element = new Monomial;
+		cur_element->update(new_element);
+		new_element->update(second_element->exponent_value, second_element->coefficient, NULL);
+		second_element = second_element->next;
+	}
+}
+
 void Polynomial::add_polynomials(Polynomial element) {
 	Monomial* cur_element = element.head_element;
 	while (cur_element->next != NULL) {
@@ -215,8 +232,9 @@ bool Polynomial::divide(double number) {
 
 void Polynomial::multiply_polynomials(Polynomial second_polynomial) {
 	// TODO second_polynomial
-	/*
-	Polynomial res;
+	
+	Polynomial sub_polynomial;
+	sub_polynomial.copy_polynomial(*this);
 	Monomial* element_to_multiply = second_polynomial.head_element;
 
 	if (second_polynomial.head_element == NULL ||
@@ -225,9 +243,17 @@ void Polynomial::multiply_polynomials(Polynomial second_polynomial) {
 	}
 
 	while (element_to_multiply != NULL) {
-
+		Monomial* first_element = head_element;
+		while (first_element != NULL) {
+			sub_polynomial.add_monomial(first_element->exponent_value + element_to_multiply->exponent_value,
+				first_element->coefficient * element_to_multiply->coefficient);
+			first_element = first_element->next;
+		}
+		element_to_multiply = element_to_multiply->next;
 	}
-	*/
+
+	delete this;
+	this = &sub_polynomial;
 }
 
 // Divides current polynomial by second one and returns remainder

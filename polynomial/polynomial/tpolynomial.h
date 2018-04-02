@@ -44,6 +44,7 @@ public:
 	bool divide_monomial(int exponent_value, double coefficient);
 
 	void print_polynomial();
+	void copy_polynomial(Polynomial polynomial);
 
 	// Mathematical operations
 	void add_polynomials(Polynomial element);
