@@ -235,6 +235,7 @@ void Polynomial::multiply_polynomials(Polynomial second_polynomial) {
 	
 	Polynomial sub_polynomial;
 	sub_polynomial.copy_polynomial(*this);
+	this->wipe(this->head_element);
 	Monomial* element_to_multiply = second_polynomial.head_element;
 
 	if (second_polynomial.head_element == NULL ||
@@ -243,20 +244,49 @@ void Polynomial::multiply_polynomials(Polynomial second_polynomial) {
 	}
 
 	while (element_to_multiply != NULL) {
-		Monomial* first_element = head_element;
+		Monomial* first_element = sub_polynomial.head_element;
 		while (first_element != NULL) {
-			sub_polynomial.add_monomial(first_element->exponent_value + element_to_multiply->exponent_value,
+			this->add_monomial(first_element->exponent_value + element_to_multiply->exponent_value,
 				first_element->coefficient * element_to_multiply->coefficient);
 			first_element = first_element->next;
 		}
 		element_to_multiply = element_to_multiply->next;
 	}
-
-	delete this;
-	this = &sub_polynomial;
 }
 
 // Divides current polynomial by second one and returns remainder
 Polynomial Polynomial::divide_polynomials(Polynomial element) {
-	// TODO divide_polynomials
+	int length_of_polynom = 0;
+	Polynomial remainder;
+	Polynomial sub_polynomial;
+
+	sub_polynomial.copy_polynomial(*this);
+	this->wipe(this->head_element);
+	
+	if (sub_polynomial.head_element->exponent_value < element.head_element->exponent_value) {
+		remainder.copy_polynomial(sub_polynomial);
+		return remainder;
+	}
+	else {
+		Monomial* cur_element = sub_polynomial.head_element;
+		Monomial* to_delete = element.head_element;
+		while (cur_element != NULL) {
+			to_delete = element.head_element;
+			while (to_delete != NULL) {
+				if (cur_element->exponent_value >= to_delete->exponent_value) {
+					this->add_monomial(cur_element->exponent_value - to_delete->exponent_value,
+						cur_element->coefficient / to_delete->coefficient);
+					cur_element = cur_element->next;
+					to_delete = to_delete->next;
+				}
+				else {
+					to_delete = to_delete->next;
+				}
+				
+			}
+		}
+	}
+	
+	Monomial* cur_element = this->head_element;
+	
 }
